@@ -6,3 +6,6 @@ Mini Project.layout
 *.win
 *.exe
 *.layout
+Makefile.win
+*.exe
+*.exe
