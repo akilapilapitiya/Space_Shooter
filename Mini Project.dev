@@ -1,17 +1,17 @@
 [Project]
-FileName=Project12.dev
-Name=Project12
+FileName=Mini Project.dev
+Name=Project1
 Type=0
 Ver=2
 ObjFiles=
-Includes="C:\Program Files (x86)\SFML-2.4.2\include"
-Libs="C:\Program Files (x86)\SFML-2.4.2\lib"
+Includes=
+Libs=
 PrivateResource=
 ResourceIncludes=
 MakeIncludes=
 Compiler=
 CppCompiler=
-Linker=-lsfml-audio_@@_-lsfml-graphics_@@_-lsfml-window_@@_-lsfml-system_@@_
+Linker=
 IsCpp=1
 Icon=
 ExeOutput=
@@ -19,7 +19,7 @@ ObjectOutput=
 LogOutput=
 LogOutputEnabled=0
 OverrideOutput=0
-OverrideOutputName=Project12.exe
+OverrideOutputName=
 HostApplication=
 UseCustomMakefile=0
 CustomMakefile=
@@ -29,7 +29,6 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0000000000000000000000000
-UnitCount=1
 
 [VersionInfo]
 Major=1
@@ -39,24 +38,14 @@ Build=0
 LanguageID=1033
 CharsetID=1252
 CompanyName=
-FileVersion=1.0.0.0
+FileVersion=
 FileDescription=Developed using the Dev-C++ IDE
 InternalName=
 LegalCopyright=
 LegalTrademarks=
 OriginalFilename=
 ProductName=
-ProductVersion=1.0.0.0
+ProductVersion=
 AutoIncBuildNr=0
 SyncProduct=1
-
-[Unit1]
-FileName=main1.cpp
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
 
