@@ -10,7 +10,7 @@ sf::RenderWindow window(sf::VideoMode(600, 500), "<Game Name>"); //To Update
 int main()
 {
     sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+    shape.setFillColor(sf::Color::Blue);
 
     while (window.isOpen())
     {

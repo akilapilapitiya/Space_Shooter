@@ -2,10 +2,10 @@
 FileName=Mini Project.dev
 Name=Project1
 Type=0
-Ver=2
+Ver=1
 ObjFiles=
-Includes=SFML-2.4.2\include
-Libs=SFML-2.4.2\lib
+Includes=C:\GitHub\First-Semester-Group-Project\SFML-2.4.2\include
+Libs=C:\GitHub\First-Semester-Group-Project\SFML-2.4.2\lib
 PrivateResource=
 ResourceIncludes=
 MakeIncludes=
@@ -28,7 +28,7 @@ Folders=
 IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
-CompilerSettings=0000000000000000000000000
+CompilerSettings=0000000000000000000000
 <<<<<<< Updated upstream
 UnitCount=0
 =======
