@@ -6,6 +6,7 @@
 //Window Initialization
 sf::RenderWindow window(sf::VideoMode(600, 500), "<Game Name>"); //To Update
 
+
 //Main Program
 int main()
 {

@@ -1,11 +1,11 @@
 [Editors]
 <<<<<<< Updated upstream
-Order=
+Order=0
 Focused=0
 [Editor_0]
 <<<<<<< HEAD
-CursorCol=42
-CursorRow=13
+CursorCol=16
+CursorRow=8
 =======
 CursorCol=40
 CursorRow=12
