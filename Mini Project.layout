@@ -3,13 +3,20 @@
 Order=0
 Focused=0
 [Editor_0]
+<<<<<<< HEAD
 CursorCol=1
 CursorRow=8
+=======
+CursorCol=40
+CursorRow=12
+>>>>>>> 24a47703532e552168aebf1168e5ed54a0a0ccac
 =======
 Order=0
 Focused=0
 TopLine=1
 LeftChar=1
+Open=1
+Top=1
 [Editor_0]
 CursorCol=1
 CursorRow=8
