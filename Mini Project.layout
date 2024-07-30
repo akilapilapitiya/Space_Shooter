@@ -19,10 +19,14 @@ CursorRow=12
 Order=0
 Focused=0
 <<<<<<< HEAD
+<<<<<<< HEAD
 TopLine=297
 =======
 TopLine=49
 >>>>>>> d3336f93eda964172ee76d1e8d217d5773b7f26d
+=======
+TopLine=1
+>>>>>>> ea2b250d12ff870451a84e8983bef50915fb2974
 LeftChar=1
 Open=1
 Top=1

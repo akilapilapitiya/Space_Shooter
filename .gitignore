@@ -18,3 +18,12 @@ Makefile.win
 Mini Project.exe
 *.exe
 *.win
+<<<<<<< HEAD
+=======
+*.exe
+*.layout
+scores.txt
+Mini Project.exe
+Mini Project.layout
+Mini Project.layout
+>>>>>>> ea2b250d12ff870451a84e8983bef50915fb2974
