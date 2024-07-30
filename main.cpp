@@ -12,7 +12,7 @@ public:
         : window(sf::VideoMode(800, 600), "Asteroid Dodger"), playerSpeed(250.f), asteroidSpeed(150.f),
           spawnInterval(0.8f), score(0), gameOver(false), inMenu(true), multiplayerMode(false) {
         window.setFramerateLimit(60);
-        
+
         if (!font.loadFromFile("arial.ttf")) {
             std::cerr << "Error loading font\n";
         }
@@ -20,7 +20,7 @@ public:
         if (!playerTexture.loadFromFile("spaceship.png")) {
             std::cerr << "Error loading spaceship texture\n";
         }
-        
+
         if (!asteroidTexture.loadFromFile("asteroid.png")) {
             std::cerr << "Error loading asteroid texture\n";
         }
@@ -167,15 +167,27 @@ private:
     void handlePlayerInput(sf::Sprite& player, sf::Keyboard::Key leftKey, sf::Keyboard::Key rightKey, sf::Keyboard::Key upKey, sf::Keyboard::Key downKey, float dt) {
         if (sf::Keyboard::isKeyPressed(leftKey)) {
             player.move(-playerSpeed * dt, 0.f);
+            if (player.getPosition().x < 0.f) {
+                player.setPosition(0.f, player.getPosition().y);
+            }
         }
         if (sf::Keyboard::isKeyPressed(rightKey)) {
             player.move(playerSpeed * dt, 0.f);
+            if (player.getPosition().x + player.getGlobalBounds().width > window.getSize().x) {
+                player.setPosition(window.getSize().x - player.getGlobalBounds().width, player.getPosition().y);
+            }
         }
         if (sf::Keyboard::isKeyPressed(upKey)) {
             player.move(0.f, -playerSpeed * dt);
+            if (player.getPosition().y < 0.f) {
+                player.setPosition(player.getPosition().x, 0.f);
+            }
         }
         if (sf::Keyboard::isKeyPressed(downKey)) {
             player.move(0.f, playerSpeed * dt);
+            if (player.getPosition().y + player.getGlobalBounds().height > window.getSize().y) {
+                player.setPosition(player.getPosition().x, window.getSize().y - player.getGlobalBounds().height);
+            }
         }
     }
 
@@ -242,12 +254,12 @@ private:
                 }
 
                 // Draw white border between views
-                sf::RectangleShape border(sf::Vector2f(405.f, static_cast<float>(window.getSize().y)));
+                sf::RectangleShape border(sf::Vector2f(5.f, static_cast<float>(window.getSize().y)));
                 border.setFillColor(sf::Color::White);
-                border.setPosition(0.f, 0.f);
+                border.setPosition(window.getSize().x / 2.f - 2.5f, 0.f); // Center the border
+                window.setView(window.getDefaultView()); // Reset to default view to draw HUD
                 window.draw(border);
 
-                window.setView(window.getDefaultView()); // Reset to default view to draw HUD
                 window.draw(scoreText);
                 if (gameOver) {
                     window.draw(gameOverText);
@@ -301,7 +313,7 @@ private:
             detailsStream << line << "\n";
         }
         detailsText.setString(detailsStream.str());
-        
+
         window.draw(detailsText);
         window.display();
 
