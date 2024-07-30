@@ -13,15 +13,15 @@ public:
           spawnInterval(0.8f), score(0), gameOver(false), inMenu(true), multiplayerMode(false) {
         window.setFramerateLimit(60);
 
-        if (!font.loadFromFile("arial.ttf")) {
+        if (!font.loadFromFile("Assets\\Font\\arial.ttf")) {
             std::cerr << "Error loading font\n";
         }
 
-        if (!playerTexture.loadFromFile("spaceship.png")) {
+        if (!playerTexture.loadFromFile("Assets\\Spaceship\\spaceship.png")) {
             std::cerr << "Error loading spaceship texture\n";
         }
 
-        if (!asteroidTexture.loadFromFile("asteroid.png")) {
+        if (!asteroidTexture.loadFromFile("Assets\\Asteroid\\asteroid.png")) {
             std::cerr << "Error loading asteroid texture\n";
         }
 
