@@ -1,3 +1,4 @@
+//Library Imports
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <cstdlib>
@@ -6,33 +7,45 @@
 #include <iostream>
 #include <fstream>
 
+//Classs for the Game
 class AsteroidDodger {
 public:
+	
+//	Game Window Configuration
     AsteroidDodger()
-        : window(sf::VideoMode(800, 600), "Asteroid Dodger"), playerSpeed(250.f), asteroidSpeed(150.f),
-          spawnInterval(0.8f), score(0), gameOver(false), inMenu(true), multiplayerMode(false) {
-        window.setFramerateLimit(60);
+        : window(sf::VideoMode(800, 600), "Asteroid Dodger"),	 //Windows Size Configuration
+		  playerSpeed(250.f), asteroidSpeed(150.f),				 //Spaceship and Asteriod Movement Speed 
+          spawnInterval(0.8f), 									 //Asteroid Spwan Speed
+		  score(0), 											 //Reset Score to '0' at every Restart 
+		  gameOver(false),										 //Initialize Gamer over boolen value to 'false' 
+		  inMenu(true), 										 //Calling the in game main Menue
+		   multiplayerMode(false) {								 //Initialize multiplayer mode boolen value to 'false'
+        window.setFramerateLimit(30); 							 //Set In-game FrameRate
 
-        if (!font.loadFromFile("Assets\\Font\\arial.ttf")) {
+
+//		FILE IMPORTS and AVAILABILITY check
+        if (!font.loadFromFile("Assets\\Font\\arial.ttf")) { 						//Load Ingame Fonts
             std::cerr << "Error loading font\n";
         }
 
-        if (!playerTexture.loadFromFile("Assets\\Spaceship\\spaceship.png")) {
+        if (!playerTexture.loadFromFile("Assets\\Spaceship\\spaceship.png")) {    	//Load the Spaceship
             std::cerr << "Error loading spaceship texture\n";
         }
 
-        if (!asteroidTexture.loadFromFile("Assets\\Asteroid\\asteroid.png")) {
+        if (!asteroidTexture.loadFromFile("Assets\\Asteroid\\asteroid.png")) {		//Load the Asteroid
             std::cerr << "Error loading asteroid texture\n";
         }
 
         setupPlayers(); // Set up initial player positions
         setupViews();   // Set up views for split screen
 
+
         scoreText.setFont(font);
         scoreText.setCharacterSize(20);
         scoreText.setFillColor(sf::Color::White);
         scoreText.setPosition(10.f, 10.f);
 
+		//GAME OVER Display
         gameOverText.setFont(font);
         gameOverText.setCharacterSize(50);
         gameOverText.setFillColor(sf::Color::Red);
