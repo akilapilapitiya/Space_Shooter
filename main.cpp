@@ -27,4 +27,6 @@ int main()
     }
 
     return 0;
+    int num;
+    number  = 10;
 }
