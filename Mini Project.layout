@@ -4,8 +4,13 @@ Order=0
 Focused=0
 [Editor_0]
 <<<<<<< HEAD
+<<<<<<< HEAD
 CursorCol=1
 CursorRow=340
+=======
+CursorCol=22
+CursorRow=67
+>>>>>>> d3336f93eda964172ee76d1e8d217d5773b7f26d
 =======
 CursorCol=40
 CursorRow=12
@@ -13,7 +18,11 @@ CursorRow=12
 =======
 Order=0
 Focused=0
+<<<<<<< HEAD
 TopLine=297
+=======
+TopLine=49
+>>>>>>> d3336f93eda964172ee76d1e8d217d5773b7f26d
 LeftChar=1
 Open=1
 Top=1
