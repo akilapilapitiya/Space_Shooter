@@ -25,3 +25,6 @@ Mini Project.exe
 Mini Project.layout
 Mini Project.layout
 Mini Project.layout
+*.win
+*.exe
+*.txt
