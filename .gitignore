@@ -18,3 +18,5 @@ Makefile.win
 Mini Project.exe
 *.exe
 *.win
+*.exe
+*.layout
