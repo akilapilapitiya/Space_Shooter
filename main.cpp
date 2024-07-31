@@ -209,7 +209,7 @@ private:
 
     void update(float dt) {
         score += dt;
-        asteroidSpeed += dt * 10.f; // Increase speed over time
+        asteroidSpeed += dt * 10.f; // Increase speed over time ...
 
         // Update player 1
         for (vector<sf::Sprite>::iterator it = asteroids.begin(); it != asteroids.end(); ) {
