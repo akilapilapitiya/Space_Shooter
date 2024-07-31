@@ -6,6 +6,7 @@
 #include <sstream>
 #include <iostream>
 #include <fstream>
+using namespace std;
 
 //Classs for the Game
 class AsteroidDodger {
@@ -13,8 +14,8 @@ public:
 	
 //	Game Window Configuration
     AsteroidDodger()
-        : window(sf::VideoMode(800, 600), "Asteroid Dodger"),	 //Windows Size Configuration
-		  playerSpeed(250.f), asteroidSpeed(150.f),				 //Spaceship and Asteriod Movement Speed 
+        : window(sf::VideoMode(900, 700), "Asteroid Dodger"),	 //Windows Size Configuration
+		  playerSpeed(350.f), asteroidSpeed(150.f),				 //Spaceship and Asteriod Movement Speed 
           spawnInterval(0.8f), 									 //Asteroid Spwan Speed
 		  score(0), 											 //Reset Score to '0' at every Restart 
 		  gameOver(false),										 //Initialize Gamer over boolen value to 'false' 
@@ -25,16 +26,17 @@ public:
 
 //		FILE IMPORTS and AVAILABILITY check
         if (!font.loadFromFile("Assets\\Font\\arial.ttf")) { 						//Load Ingame Fonts
-            std::cerr << "Error loading font\n";
+            cerr << "Error loading font\n";
         }
 
         if (!playerTexture.loadFromFile("Assets\\Spaceship\\spaceship.png")) {    	//Load the Spaceship
-            std::cerr << "Error loading spaceship texture\n";
+            cerr << "Error loading spaceship texture\n";
         }
 
         if (!asteroidTexture.loadFromFile("Assets\\Asteroid\\asteroid.png")) {		//Load the Asteroid
-            std::cerr << "Error loading asteroid texture\n";
+            cerr << "Error loading asteroid texture\n";
         }
+        
 
         setupPlayers(); // Set up initial player positions
         setupViews();   // Set up views for split screen
@@ -45,13 +47,14 @@ public:
         scoreText.setFillColor(sf::Color::White);
         scoreText.setPosition(10.f, 10.f);
 
-		//GAME OVER Display
+		//GAME OVER Display Customizations
         gameOverText.setFont(font);
         gameOverText.setCharacterSize(50);
         gameOverText.setFillColor(sf::Color::Red);
         gameOverText.setPosition(200.f, 250.f);
         gameOverText.setString("Game Over!");
 
+		//IN-GAME Menue Customizations
         menuText.setFont(font);
         menuText.setCharacterSize(30);
         menuText.setFillColor(sf::Color::White);
@@ -99,8 +102,8 @@ private:
     sf::Text scoreText;
     sf::Text gameOverText;
     sf::Text menuText;
-    std::string playerName1;
-    std::string playerName2;
+    string playerName1;
+    string playerName2;
     sf::View view1;
     sf::View view2;
 
@@ -136,33 +139,33 @@ private:
             }
             if (inMenu) {
                 if (event.type == sf::Event::KeyPressed) {
-                    if (event.key.code == sf::Keyboard::Num1) {
+                    if ((event.key.code == sf::Keyboard::Num1)|| (event.key.code == sf::Keyboard::Numpad1)) {
                         displayPlayerDetails();
-                    } else if (event.key.code == sf::Keyboard::Num2) {
-                        std::cout << "Enter your name (Player 1): ";
-                        std::cin >> playerName1;
+                    } else if ((event.key.code == sf::Keyboard::Num2) || (event.key.code == sf::Keyboard::Numpad2)) {
+                        cout << "Enter your name (Player 1): ";
+                        cin >> playerName1;
                         inMenu = false;
                         score = 0;
                         gameOver = false;
                         asteroids.clear();
                         resetPlayers(); // Reset players on game start
-                    } else if (event.key.code == sf::Keyboard::Num3) {
-                        std::cout << "Enter your name (Player 1): ";
-                        std::cin >> playerName1;
-                        std::cout << "Enter your name (Player 2): ";
-                        std::cin >> playerName2;
+                    } else if ((event.key.code == sf::Keyboard::Num3) || (event.key.code == sf::Keyboard::Numpad3)) {
+                        cout << "Enter your name (Player 1): ";
+                        cin >> playerName1;
+                        cout << "Enter your name (Player 2): ";
+                        cin >> playerName2;
                         inMenu = false;
                         multiplayerMode = true;
                         score = 0;
                         gameOver = false;
                         asteroids.clear();
                         resetPlayers(); // Reset players on game start
-                    } else if (event.key.code == sf::Keyboard::Num4) {
+                    } else if ((event.key.code == sf::Keyboard::Num4) || (event.key.code == sf::Keyboard::Numpad4)){
                         window.close();
                     }
                 }
             } else {
-                if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Num1) {
+                if (event.type == sf::Event::KeyPressed && ((event.key.code == sf::Keyboard::Num1)|| (event.key.code == sf::Keyboard::Numpad1))) {
                     inMenu = true;
                     multiplayerMode = false;
                 }
@@ -209,7 +212,7 @@ private:
         asteroidSpeed += dt * 10.f; // Increase speed over time
 
         // Update player 1
-        for (std::vector<sf::Sprite>::iterator it = asteroids.begin(); it != asteroids.end(); ) {
+        for (vector<sf::Sprite>::iterator it = asteroids.begin(); it != asteroids.end(); ) {
             it->move(0.f, asteroidSpeed * dt);
 
             if (it->getGlobalBounds().intersects(player1.getGlobalBounds())) {
@@ -256,7 +259,7 @@ private:
             if (multiplayerMode) {
                 window.setView(view1);
                 window.draw(player1);
-                for (std::vector<sf::Sprite>::iterator it = asteroids.begin(); it != asteroids.end(); ++it) {
+                for (vector<sf::Sprite>::iterator it = asteroids.begin(); it != asteroids.end(); ++it) {
                     window.draw(*it);
                 }
 
@@ -318,11 +321,11 @@ private:
         detailsText.setFillColor(sf::Color::White);
         detailsText.setPosition(150.f, 150.f);
 
-        std::ifstream file("scores.txt");
-        std::string line;
-        std::ostringstream detailsStream;
+        ifstream file("scores.txt");
+        string line;
+        ostringstream detailsStream;
         detailsStream << "Player Details with Scores:\n";
-        while (std::getline(file, line)) {
+        while (getline(file, line)) {
             detailsStream << line << "\n";
         }
         detailsText.setString(detailsStream.str());
