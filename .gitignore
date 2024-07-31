@@ -38,3 +38,4 @@ main.o
 Makefile.win
 Mini Project.exe
 scores.txt
+*.layout
