@@ -43,3 +43,7 @@ Mini Project.layout
 scores.txt
 Mini Project.exe
 scores.txt
+*.win
+*.exe
+*.layout
+*.txt
